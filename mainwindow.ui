@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>792</width>
+    <height>777</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MotorGraph</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="acceleration" native="true"/>
+      </item>
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="v_max" native="true"/>
+      </item>
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="distance" native="true"/>
+      </item>
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="steps" native="true"/>
+      </item>
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="decimals" native="true"/>
+      </item>
+      <item>
+       <widget class="QDoublespinboxAndQSlider" name="lead" native="true"/>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="PlotWidget" name="plotwidget_ta" native="true"/>
+      </item>
+      <item>
+       <widget class="PlotWidget" name="plotwidget_tv" native="true"/>
+      </item>
+      <item>
+       <widget class="PlotWidget" name="plotwidget_tx" native="true"/>
+      </item>
+      <item>
+       <widget class="PlotWidget" name="plotwidget_trev" native="true"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>792</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QDoublespinboxAndQSlider</class>
+   <extends>QWidget</extends>
+   <header location="global">qdoublespinbox_and_qslider</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">pyqtgraph</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
