@@ -47,6 +47,7 @@ class MainWindow(QtWidgets.QMainWindow):
         u = self.ui
         for w in [u.acceleration, u.v_max, u.distance, u.steps, u.decimals, u.lead]:
             w.non_update = False
+            w.double_spinbox.valueChanged.emit(w.double_spinbox.value())
 
     def update_plotwidget(self):
         try:
