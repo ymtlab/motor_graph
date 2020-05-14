@@ -23,6 +23,36 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>acceleration type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBox">
+          <item>
+           <property name="text">
+            <string>trapezoid</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>triangle</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>parabola</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QDoublespinboxAndQSlider" name="acceleration" native="true"/>
       </item>
       <item>
@@ -82,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>792</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

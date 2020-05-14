@@ -38,16 +38,21 @@ class MainWindow(QtWidgets.QMainWindow):
             widget.set_value(defoult_value)
         
         settings_slider(self.ui.acceleration, 'acceleration[m/ss]', 0.001, 30, 0.001, 10)
-        settings_slider(self.ui.v_max, 'v_max[m/s]', 0.001, 10, 0.001, 1)
+        settings_slider(self.ui.v_max, 'v_max[m/s]', 0.001, 5, 0.001, 1)
         settings_slider(self.ui.distance, 'distance[m]', 0.001, 3, 0.001, 0.6)
-        settings_slider(self.ui.steps, 'steps', 1, 20, 1, 10)
-        settings_slider(self.ui.decimals, 'decimals', 1, 10, 1, 6)
+        settings_slider(self.ui.steps, 'steps', 3, 51, 1, 21)
+        settings_slider(self.ui.decimals, 'decimals', 1, 10, 1, 4)
         settings_slider(self.ui.lead, 'ballscrew lead[mm]', 0.1, 60, 0.1, 10)
 
         u = self.ui
         for w in [u.acceleration, u.v_max, u.distance, u.steps, u.decimals, u.lead]:
             w.non_update = False
-            w.double_spinbox.valueChanged.emit(w.double_spinbox.value())
+            w.double_spinbox.valueChanged.emit( w.double_spinbox.value() )
+        
+        self.ui.comboBox.currentTextChanged.connect(self.combobox_changed)
+
+    def combobox_changed(self, text):
+        self.update_plotwidget()
 
     def update_plotwidget(self):
         try:
@@ -63,9 +68,10 @@ class MainWindow(QtWidgets.QMainWindow):
             distance = float( self.ui.distance.double_spinbox.value() )
             step = int( self.ui.steps.double_spinbox.value() )
             decimals = int( self.ui.decimals.double_spinbox.value() )
+            acceleration_type = self.ui.comboBox.currentText()
 
             # calculate
-            t, a, v, x = motor_graph_calculate(acceleration, v_max, distance, step, decimals)
+            t, a, v, x = motor_graph_calculate(acceleration, v_max, distance, step, decimals, 0, acceleration_type)
 
             # calculate revolution
             rev = [ np.round( vi * 1000.0 / self.ui.lead.double_spinbox.value() * 60.0, decimals ) for vi in v ]

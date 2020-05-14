@@ -23,6 +23,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setObjectName("label")
+        self.horizontalLayout_4.addWidget(self.label)
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.horizontalLayout_4.addWidget(self.comboBox)
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
         self.acceleration = QDoublespinboxAndQSlider(self.centralwidget)
         self.acceleration.setObjectName("acceleration")
         self.verticalLayout.addWidget(self.acceleration)
@@ -68,7 +80,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 792, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 792, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -81,5 +93,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MotorGraph"))
+        self.label.setText(_translate("MainWindow", "acceleration type"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "trapezoid"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "triangle"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "parabola"))
 from pyqtgraph import PlotWidget
 from qdoublespinbox_and_qslider import QDoublespinboxAndQSlider
